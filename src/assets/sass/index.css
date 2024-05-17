@@ -15,12 +15,31 @@
 
 html, body, #root {
   height: 100%;
+  font-size: 12px;
 }
 
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 8%;
+  --b: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(rgba(0, 0, 0, 0) 10%, #ffffff) content-box;
+  -webkit-mask: repeating-conic-gradient(rgba(0, 0, 0, 0) 0deg, #000 1deg 20deg, rgba(0, 0, 0, 0) 21deg 36deg), radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: l4 1s infinite steps(10);
+}
+
+@keyframes l4 {
+  to {
+    transform: rotate(1turn);
+  }
+}
 body {
   background-color: #efefef;
   font-family: "Roboto", sans-serif;
-  font-size: 62.5%;
 }
 
 a {
