@@ -10,9 +10,9 @@ export default function SignIn() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const { signIn } = useContext(AuthContext)
+    const { signIn, loadingAuth, setLoadingAuth } = useContext(AuthContext)
 
-    function handleLogin(e){
+    async function handleLogin(e){
         e.preventDefault()
 
         let redirect = true
@@ -35,9 +35,8 @@ export default function SignIn() {
             document.getElementById('password').style.border = 'none'
         }
 
-        if(redirect){
-            signIn(email, password)
-        }
+        redirect ? await signIn(email, password) : setLoadingAuth(false)
+
     }
 
     return (
@@ -56,7 +55,9 @@ export default function SignIn() {
                     <span id='passwordConsole' className='password-console'>&nbsp;</span>
 
                     <Link to='/' className='recovery-password'>Recovery Password</Link>
-                    <button type='submit'>Sign In</button>
+                    <button type='submit'>
+                        {loadingAuth ? <div className="loader"></div> : 'Sign In'}
+                    </button>
                     <div className='register-link-text'>Not a member?<Link to='/signUp' className='register-link'> Register now</Link></div>
                 </form>
             </div>

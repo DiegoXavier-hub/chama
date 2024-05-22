@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom'
 import { AuthContext } from '../../contexts/auth';
 
 import Fire from '../../assets/images/flame.jpg'
-import '../../assets/sass/signUp.css'
+import '../../assets/sass/signIn.css'
 
 export default function SignIn() {
 
-    const { signUp, loadingAuth } = useContext(AuthContext)
+    const { signUp, loadingAuth, setLoadingAuth } = useContext(AuthContext)
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -38,16 +38,14 @@ export default function SignIn() {
 
         if(password.length < 8) {
             document.getElementById('password').style.border = '1px solid red'
-            document.getElementById('passwordConsole').innerText = 'Password must be at least 8 characters long'
+            document.getElementById('passwordConsole').innerText = 'Weak password, must be at least 8 characters long'
             redirect = false
         } else {
             document.getElementById('passwordConsole').innerText = ' '
             document.getElementById('password').style.border = 'none'
         }
 
-        if(redirect){
-            await signUp(name, email, password)
-        }
+        redirect ? await signUp(name, email, password) : setLoadingAuth(false)
     }
 
     return (
@@ -68,7 +66,7 @@ export default function SignIn() {
                     <span id='passwordConsole' className='password-console'>&nbsp;</span>
 
                     <button type='submit'>
-                        {loadingAuth ? <div class="loader"></div> : 'Sign Up'}
+                        {loadingAuth ? <div className="loader"></div> : 'Sign Up'}
                     </button>
                     <div className='register-link-text'>Already a member?<Link to='/signIn' className='register-link'> Sign in</Link></div>
                 </form>
