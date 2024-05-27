@@ -67,15 +67,3 @@
             -webkit-align-items: $align;
             align-items: $align;  
 }
-
-@mixin estruturaRepeticao ($size) {
-    width: $size;
-    height: $size;
-    background-color: $primary-color;
-    display: block;
-    margin: 20px;
-    text-align: center;
-    line-height: $size;
-    font-size: 4rem;
-    color: $second-color;
-}
