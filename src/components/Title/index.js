@@ -1,9 +1,10 @@
 import '../../assets/sass/title.css'
 
-export default function Title(){
+export default function Title({children, name}){
     return(
         <div id="Title">
-            <h1>My Title</h1>
+            {children}
+            <span>{name}</span>
         </div>
     )
 }

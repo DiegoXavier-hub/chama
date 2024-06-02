@@ -44,7 +44,7 @@ export default function Header(){
         </Link>
         <Link to='/profile' className='link'>
             <FiSettings size={22} color='#fff'/>
-            Perfil
+            Configurações
         </Link>
         <Link to='/' className='link' onClick={()=>logOut(false)}>
             <FiLogOut size={22} color='#fff'/>

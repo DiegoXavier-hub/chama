@@ -43,7 +43,16 @@ Link {
   cursor: pointer;
 }
 
-/* HTML: <div class="loader"></div> */
+main {
+  margin-left: 18.4%;
+  padding: 1em 0 0 0;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    margin-left: 1%;
+  }
+}
 .loader {
   width: 8%;
   --b: 8px;

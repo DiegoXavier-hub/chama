@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"title.min.css"}
+{"version":3,"sources":["title.scss","_mixin.scss","_colors.scss"],"names":[],"mappings":"AAGA,OCEI,YAAA,CAyBA,kBD1BiB,CCgDb,0BDhDkB,CC+Dd,kBD/D0B,CAClC,iBAAA,CACA,gBAAA,CACA,iBAAA,CACA,wBEPW,CFQX,8BAAA,CAEA,WACI,iBAAA","file":"title.min.css"}
